@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Payment;
 use App\Http\Requests\PaymentsRequest;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class UserPaymentsController extends Controller
 {
@@ -19,10 +20,11 @@ class UserPaymentsController extends Controller
 
     public function store(PaymentsRequest $request, $id)
     {
-        $this->data['payment']              = $request->all();
-        $this->data['payment']['user_id']   = $id;
+        $payment              = $request->all();
+        $payment['user_id']   = $id;
+        $payment['admin_id']   = Auth::id();
 
-        if (Payment::create($this->data['payment'])) {
+        if (Payment::create($payment)) {
             Session::flash('message', 'Payment Successfully');
         }
 

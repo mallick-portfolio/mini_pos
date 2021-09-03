@@ -15,12 +15,12 @@ class AddAdmin extends Migration
     public function up()
     {
         $admin = [
-            'name' => 'Tamal Mallick',
-            'email' => 'tamal@gmail.com',
+            'name' => 'Amit Mallick',
+            'email' => 'amit@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make(12345678),
             'address' => 'Dhaka Bangladesh',
-            'phone' => '01836226095'
+            'phone' => '0188454354'
         ];
 
         Admin::create($admin);

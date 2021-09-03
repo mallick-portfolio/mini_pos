@@ -8,6 +8,7 @@ use App\Models\Receipt;
 
 use App\Http\Requests\ReceiptsRequest;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class UserReceiptsController extends Controller
 {
@@ -23,6 +24,7 @@ class UserReceiptsController extends Controller
     {
         $this->data['receipt']              = $request->all();
         $this->data['receipt']['user_id']   = $id;
+        $this->data['receipt']['admin_id']   = Auth::id();
 
         if (Receipt::create($this->data['receipt'])) {
             Session::flash('message', 'Payment Successfully');
