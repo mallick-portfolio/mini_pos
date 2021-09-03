@@ -1,0 +1,10 @@
+.my-icon i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+.my-btn .left, .center {
+    margin-right: 2px;
+}
+input.my-input {
+    height: 150px;
+}
