@@ -37,7 +37,7 @@
 			<div class="card-body">
 
 				@yield('user-content')
-
+				
 
 			</div>
 		</div>

@@ -34,11 +34,11 @@ class User extends Model
     }
     public function payments()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Payment::class)->orderBy('id', 'desc');
     }
     public function receipts()
     {
-        return $this->hasMany(Receipt::class, 'user_id', 'id');
+        return $this->hasMany(Receipt::class, 'user_id', 'id')->orderBy('id', 'desc');
     }
 
 }
